@@ -15,16 +15,42 @@ Sia L = a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> una lista. La lunghezza
 Un tipico insieme di operazioni per il tipo di dato lista comprende l'operazione di creazione CREALISTA, per inizializzare una lista ad un particolare vettore (di solito la sequenza vuota), quelle di selezione PRIMOLISTA ed ULTIMOLISTA, per accedere direttamente al primo o all'ultimo elemento della sequenza, e SUCCLISTA e PREDLISTA, per passare da un elemento al successivo o al precedente della sequenza, quelle di interrogazione LISTAVUOTA e FINELISTA, per verificare che la sequenza sia vuota o che sia stato oltrepassato un estremo della lista, quella di lettura LEGGILISTA per leggere il valore di un elemento, INSLISTA per inserire un nuovo elemento nella lista, e CANCLISTA per cancellare un vecchio elemento della lista.
 
 Formalmente, la sintassi degli operatori è la seguente.
-CREALISTA: () &rightarrow; lista
-LISTAVUOTA: (lista) &rightarrow; booleano
-PRIMOLISTA: (lista) &rightarrow; posizione
-ULTIMOLISTA: (lista) &rightarrow; posizione
-SUCCLISTA: (posizione, lista) &rightarrow; posizione
-PREDLISTA: (posizione, lista) &rightarrow; posizione
-FINELISTA: (posizione, lista) &rightarrow; booleano
-LEGGILISTA: (posizione, lista) &rightarrow; tipoelem
-SCRIVILISTA: (tipoelem, posizione, lista) &rightarrow; lista
-INSLISTA: (tipoelem, posizione, lista) &rightarrow; lista
-CANCLISTA: (posizione, lista) &rightarrow; lista
+
+* CREALISTA: () &rightarrow; lista
+* LISTAVUOTA: (lista) &rightarrow; booleano
+* PRIMOLISTA: (lista) &rightarrow; posizione
+* ULTIMOLISTA: (lista) &rightarrow; posizione
+* SUCCLISTA: (posizione, lista) &rightarrow; posizione
+* PREDLISTA: (posizione, lista) &rightarrow; posizione
+* FINELISTA: (posizione, lista) &rightarrow; booleano
+* LEGGILISTA: (posizione, lista) &rightarrow; tipoelem
+* SCRIVILISTA: (tipoelem, posizione, lista) &rightarrow; lista
+* INSLISTA: (tipoelem, posizione, lista) &rightarrow; lista
+* CANCLISTA: (posizione, lista) &rightarrow; lista
 
 Indicando col termine lista l'insieme di tutte le sequenze di lunghezza arbitraria di elementi di tipo "tipoelem" e con L una generica lista, la semantica degli operatori è data dalle seguenti funzioni, con relative precondizioni e postcondizioni.
+
+* CREALISTA() = L'
+  * Post: L' = &wedge;, la sequenza vuota
+* LISTAVUOTA(L) = b
+  * Post: b = vero, se L = &wedge;; b = falso, altrimenti
+* PRIMOLISTA(L) = p
+  * Post: p = pos<sub>1</sub> (e quindi pos<sub>1</sub> = pos<sub>n+1</sub> se L = &wedge;)
+* ULTIMOLISTA(L) = p
+  * Post: p = pos<sub>n</sub> (e quindi pos<sub>n</sub> = pos<sub>0</sub> se L = &wedge;)
+* SUCCLISTA(p, L) = q
+  * Pre: L = a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> e p = pos<sub>i</sub> per un i, 1 &le; i &le; n
+  * Post: q = pos<sub>i+1</sub>
+* PREDLISTA(q, L) = q
+  * Pre: L = a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> e p = pos<sub>i</sub> per un i, 1 &le; i &le; n
+  * Post: q = pos<sub>i-1</sub>
+* FINELISTA(p, L) = b
+  * Pre: L = a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> e p = pos<sub>i</sub>, 0 &le; i &le; n+1
+  * Post: b = vero, se p = pos<sub>0</sub> oppure se p = pos<sub>n+1</sub>; b = falso, altrimenti
+* LEGGILISTA(p, L) = a
+  * Pre: L = a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> e p = pos<sub>i</sub> per un i, 1 &le; i &le; n
+  * Post: a = a<sub>i</sub>
+* SCRIVILISTA(a, p, L) = L'
+  * Pre: L = a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub> e p = pos<sub>i</sub> per un i, 1 &le; i &le; n+1
+  * Post: L' = a<sub>1</sub>, ..., a<sub>i-1</sub>, a, a<sub>i</sub>, a<sub>i+1</sub>, ..., a<sub>n</sub> se 1 &le; i &le; n, L' = a<sub>1</sub>, ..., a<sub>i-1</sub>, a<sub>i+1</sub>, ..., a<sub>n</sub> (e quindi L' = &wedge; se i = n = 1)
+
