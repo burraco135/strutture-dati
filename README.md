@@ -2,6 +2,7 @@
 
 ```
 |-- strutture-dati
+|   |-- Indice.md
 |   |-- Liste.pdf
 |   |-- 
 |   |--
