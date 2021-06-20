@@ -3,8 +3,8 @@
 ```
 |-- strutture-dati
 |   |-- Indice.md
-|   |-- Liste.pdf
-|   |-- 
+|   |-- Lista.pdf
+|   |-- Pila.pdf
 |   |--
 |   |--
 |-- algoritmi
