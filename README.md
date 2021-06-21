@@ -7,7 +7,7 @@
 |   |-- Pila.pdf
 |   |-- Coda.pdf
 |   |-- Insieme.pdf
-|   |--
+|   |-- Dizionario.pdf
 |   |--
 |   |--
 |   |--
