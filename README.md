@@ -6,6 +6,10 @@
 |   |-- Lista.pdf
 |   |-- Pila.pdf
 |   |-- Coda.pdf
+|   |-- Insieme.pdf
+|   |--
+|   |--
+|   |--
 |   |--
 |-- algoritmi
 |   |--
